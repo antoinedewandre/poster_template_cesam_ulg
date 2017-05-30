@@ -1,0 +1,153 @@
+% Latex RWTH Poster template (based on a0poster document class)
+% by Pablo Reble, Georg Wassen and Kirstin Schubert
+% RWTH Aachen University
+%
+%This file may be distributed and/or modified
+%
+%1. under the LaTeX Project Public License and/or
+%2. under the GNU Public License. 
+%
+% [21.01.2013]	 Version 0.1: First version of the template
+
+\documentclass[a0,portrait,final]{a0poster}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily, language={C}}     % Standards for Listings
+
+\usepackage{amsmath,amsthm, amssymb, latexsym,tikz}
+\usepackage{multicol}
+\usetikzlibrary{arrows,shapes}
+\usepackage{pgfplots}
+\pgfplotsset{
+  every axis/.append style={thick}
+}
+
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+% \myfig - replacement for \figure
+% necessary, since in multicol-environment 
+% \figure won't work
+
+\newcommand{\myfig}[3][0]{
+  \begin{center}
+    \vspace{1.5cm}
+    \includegraphics[width=#3\hsize, angle=#1]{#2}
+    \nobreak\medskip
+  \end{center}}
+
+% \mycaption - replacement for \caption
+% necessary, since in multicol-environment \figure and
+% therefore \caption won't work
+
+%  \setcounter{figure}{1}
+%  \newcommand{\mycaption}[1]{
+%    \vspace{0.5cm}
+%    \begin{quote}
+%      %{{\sc Figure} \arabic{figure}: #1}
+%      {#1}
+%    \end{quote}
+%    \vspace{1cm}
+%    \stepcounter{figure}
+%  }
+%	
+
+%\newenvironment{pcolumn}[1]{
+%\begin{minipage}{#1}
+  %\begin{center}
+%  }{
+  %\end{center}
+%  \end{minipage}
+%  }
+
+\newcommand{\emailulg}[0]{antoine@ulg.ac.be}
+\definecolor{cesamcolor}{RGB}{46,69,137}
+%\definecolor{cesamcolor}{RGB}{158,89,152}
+\usepackage{lfbsposter}
+
+\begin{document}
+%
+  \title{Title of an interesting Poster,\\ which can also go into the second line}
+  \author{Foo Duck and Bar Bunny}
+  \affiliations{affiliations}
+  \sffamily
+  %\tikzexternaldisable
+
+    \begin{poster}
+    \makeheader
+    \makefooter
+    \vspace{18cm}
+
+
+    \begin{multicols}{2}
+    \hspace{2cm}
+    \begin{minipage}[r]{\pcolwidth}
+
+    %%
+    %% top left box
+    %%
+\begin{posterbox}{20cm}{Items}
+    This is an example for a poster box
+
+    \end{posterbox}
+        
+    %%
+    %% center left box
+    %%
+    \begin{posterbox}{20cm}{TikZ picture}
+     graphs/ figures/important stuffs should also be created with these four colors : \\ \\
+in priority : \\
+{\Large \color{green} green}\\
+{\Large \color{red} red}\\
+{\Large \color{darkblue} darkblue}\\
+
+If you don't have enough colors :\\
+{\Large \color{lightblue} lightblue}\\
+{\Large \color{purple} purple}
+
+     
+      \end{posterbox}
+      
+      %%
+      %% bottom left box
+      %%
+      \begin{posterbox}{20cm}{Pictures}
+      blabla3
+      \end{posterbox}
+
+      \begin{posterbox}{10cm}{Pictures}
+      blabla3
+      \end{posterbox}
+   \end{minipage}
+
+    %% end left column; start next one
+
+    \begin{minipage}{\pcolwidth}
+    %%
+    %% top right box
+    %%
+    \begin{posterbox}{30cm}{Figure and Text}
+    blabla4
+    \end{posterbox}
+    
+    %%
+    %% middle right box
+    %%
+    \begin{posterbox}{27cm}{Code}
+  blabla5
+    \end{posterbox} 
+    
+     \boxwidth=10cm
+   \begin{posterbox}{20cm}{Conclusions}
+  blabla6
+    \end{posterbox}
+    \end{minipage}
+    \end{multicols}
+  \end{poster}
+
+\end{document}
+
